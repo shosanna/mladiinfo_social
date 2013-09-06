@@ -2,6 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.index_quote {
-  color: #787F93;
+h1.title {
+  font-family: Marion;
+  font-size: 48px;
+  margin: 3px;
+  color: gray;
+}
+
+h3.orange {
+  color: #e06d35;
+  margin-top: 3px;
+}
+
+.center {
+  text-align: center;
+}
+
+
+.carousel {
+  width: 400px;
+  margin: 10px;
+  .item {
+    height: 300px;
+  }
+}
+
+.bubble {
+  position: fixed;
+  top: 250px;
+  right: 0px;
+  display: inline;
+}
+
+.row.last {
+  margin-bottom: 50px;
 }

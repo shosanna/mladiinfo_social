@@ -4,4 +4,15 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+
+# def to_s
+#   name
+# end
+
+# # def email
+# #   email_address
+# # end
+
+
 end

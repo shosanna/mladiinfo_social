@@ -9,8 +9,6 @@
 </head>
 <body>
 
-
-
 <nav class="navbar navbar-default" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
@@ -20,7 +18,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Mladiinfo Social</a>
+    <a class="navbar-brand" href="#">mladiinfo social</a>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
@@ -39,15 +37,23 @@
         </ul>
       </li>
     </ul>
-  </div>
+    <p class="navbar-text pull-right">
+      <% if user_signed_in? %>
+        <span class="white"> Přihlášen jako <strong><%= current_user.email %></strong> </span>
+        <%= link_to 'Uprav profil', edit_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Odhlaš se", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      <% else %>
+        <%= link_to "Registrace", new_user_registration_path, :class => 'navbar-link'  %> |
+        <%= link_to "Přihlášení", new_user_session_path, :class => 'navbar-link'  %>
+      <% end %>
+    </p>
 </nav>
-
-<%= image_tag 'mladiinfo.png', :class => 'logo_img' %>
 
 <%= yield %>
 
 <div class="footer">
-  bla
+  <%= image_tag 'mladiinfo.png', :class => 'logo_img' %>
+  <p>Dobrovolnictví | Stáže | Neformální vzdělávání | Studium | Cestování </p>
 </div>
 
 </body>
