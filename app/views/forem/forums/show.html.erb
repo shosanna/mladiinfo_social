@@ -13,10 +13,10 @@
       </tr>
     </thead>
     <tbody>
-      <% if @topics.empty? %>
-        <tr><td colspan='5' align='center'><%= t('forem.topic.none') %></td></tr>
-      <% end %>
-      <%= render @topics %>
+    <% if @topics.empty? %>
+      <tr><td colspan='5' align='center'><%= t('forem.topic.none') %></td></tr>
+  <% end %>
+    <%= render @topics %>
     </tbody>
   </table>
   <%= forem_pages_widget(@topics) %>

@@ -10,7 +10,8 @@
 <body>
 
 <nav class="navbar navbar-default" role="navigation">
-  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="container">
+ <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
       <span class="sr-only">Toggle navigation</span>
@@ -40,16 +41,22 @@
     <p class="navbar-text pull-right">
       <% if user_signed_in? %>
         <span class="white"> Přihlášen jako <strong><%= current_user.email %></strong> </span>
-        <%= link_to 'Uprav profil', edit_user_registration_path, :class => 'navbar-link' %> |
-        <%= link_to "Odhlaš se", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <%= link_to 'Uprav profil', main_app.edit_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Odhlaš se", main_app.destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <% if current_user.forem_admin %>
+            <%= link_to "Administrate", forem.admin_root_url %>
+        <% end %>
       <% else %>
-        <%= link_to "Registrace", new_user_registration_path, :class => 'navbar-link'  %> |
-        <%= link_to "Přihlášení", new_user_session_path, :class => 'navbar-link'  %>
+        <%= link_to "Registrace", main_app.new_user_registration_path, :class => 'navbar-link'  %> |
+        <%= link_to "Přihlášení", main_app.new_user_session_path, :class => 'navbar-link'  %>
       <% end %>
-    </p>
+    </p> </div>
+
 </nav>
 
-<%= yield %>
+<div class="container">
+  <%= yield %>
+</div>
 
 <div class="footer">
   <%= image_tag 'mladiinfo.png', :class => 'logo_img' %>
