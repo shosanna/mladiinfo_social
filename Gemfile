@@ -36,6 +36,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.10.1'
   gem 'factory_girl_rails', '3.2.0'
   gem 'guard-rspec', '~> 0.7.0'
+  gem 'pry'
 end
 
 group :test do

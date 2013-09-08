@@ -13,16 +13,37 @@ describe User do
     FactoryGirl.build(:user, username: "itisjusttoolongusername")
   end
 
-  it 'is invalid without a password' do
-    FactoryGirl.build(:user, password: nil, password_confirmation: nil).should_not be_valid
+  describe "password" do
+    it 'is invalid when nil' do
+      FactoryGirl.build(:user, password: nil, password_confirmation: nil).should_not be_valid
+    end
+
+    it 'is invalid when it does not match the confirmation' do
+      FactoryGirl.build(:user, password: "mystring", password_confirmation: "mystringgg").should_not be_valid
+    end
+
+    it 'is valid when it matches the confirmation' do
+      FactoryGirl.build(:user, password: "mystring", password_confirmation: "mystring").should be_valid
+    end
+
+    it 'is invalid when too short' do
+      FactoryGirl.build(:user, password: "foo", password_confirmation: "foo")
+    end
   end
 
-  it 'is invalid when passwords do not match' do
-    FactoryGirl.build(:user, password: "mystring", password_confirmation: "mystringgg").should_not be_valid
-  end
+  describe "authentication" do
+    before(:each) { User.destroy_all }
+    let(:user) { FactoryGirl.create(:user) }
+    let(:found_user) { User.find_by(email: user.email) }
+    let(:user_for_invalid_password) { found_user.authenticate("invalid") }
 
-  it 'is valid when passwords match' do
-    FactoryGirl.build(:user, password: "mystring", password_confirmation: "mystring").should be_valid
+    it 'is valid with correct email' do
+      user.should eq found_user.authenticate(user.password)
+    end
+
+    it 'is invalid with wrong email' do
+      user.should_not eq user_for_invalid_password
+    end
   end
 
   describe "email" do

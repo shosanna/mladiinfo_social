@@ -201,6 +201,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   launchy (~> 2.1.0)
+  pry
   rails (= 4.0.0)
   rspec-rails (~> 2.10.1)
   sass-rails (~> 4.0.0)

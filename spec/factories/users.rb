@@ -5,7 +5,6 @@ FactoryGirl.define do
     username "MyString"
     email "MyString@example.com"
     password "mystring"
-    password_confirmation "mystring"
-
+    password_confirmation { |user| user.password }
   end
 end
