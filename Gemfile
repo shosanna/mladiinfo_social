@@ -28,8 +28,8 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-# Devise for creating authentification
-gem 'devise'
+# secure password related gems
+gem 'bcrypt-ruby', '3.0.1'
 
 # Test related gems
 group :development, :test do

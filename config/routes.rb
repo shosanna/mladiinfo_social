@@ -1,6 +1,10 @@
 MladiinfoSocial::Application.routes.draw do
+  get "users/new"
   get "static_pages/index"
   root "static_pages#index"
+
+  match '/signup',  to: 'users#new',            via: 'get'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
