@@ -1,7 +1,0 @@
-<p>Ahoj<%= @resource.email %>!</p>
-
-<p>Tvůj účet na mladiinfo social byl zablokován z důvodu příliš vysokého počtu nesprávných pokusů o přihlášení.</p>
-
-<p>Klikni na odkaz níže k odemčení účtu</p>
-
-<p><%= link_to 'Odemknout účet', unlock_url(@resource, :unlock_token => @resource.unlock_token) %></p>

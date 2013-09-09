@@ -1,7 +1,7 @@
 MladiinfoSocial::Application.routes.draw do
-  get "users/new"
   get "static_pages/index"
   root "static_pages#index"
+  resources :users
 
   match '/signup',  to: 'users#new',            via: 'get'
 
