@@ -2,52 +2,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MladiinfoSocial</title>
+  <title>Mladiinfo Social</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<nav class="navbar navbar-default" role="navigation">
+  <!-- navbar -->
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+   <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">mladiinfo social</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/signup">Registrace</a></li>
+        <li><a href="/users/#{current_user.id}">Profil</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Akce <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li><a href="#">Separated link</a></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+  </nav>
+
+  <!-- flash message -->
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+
+  <!-- content of each pages will render here -->
   <div class="container">
- <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#">mladiinfo social</a>
+    <%= yield %>
   </div>
 
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Domů</a></li>
-      <li><a href="#">Profil</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Akce <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li><a href="#">Separated link</a></li>
-          <li><a href="#">One more separated link</a></li>
-        </ul>
-      </li>
-    </ul>
-</nav>
-
-<div class="container">
-  <%= yield %>
-</div>
-
-<div class="footer">
-  <%= image_tag 'mladiinfo.png', :class => 'logo_img' %>
-  <p>Dobrovolnictví | Stáže | Neformální vzdělávání | Studium | Cestování </p>
-</div>
+  <!-- footer -->
+  <div class="footer">
+    <%= image_tag 'mladiinfo.png', :class => 'logo_img' %>
+    <p>Dobrovolnictví | Stáže | Neformální vzdělávání | Studium | Cestování </p>
+  </div>
 
 </body>
 </html>
