@@ -19,6 +19,10 @@ body {
   padding-bottom: 50px;
 }
 
+p {
+  text-align: justify;
+}
+
 h1 {
   text-align: center;
 }
@@ -27,12 +31,18 @@ nav.navbar.navbar-default {
   border-radius: 0;
 }
 
-.logo_img {
-  width: 300px;
+.footer_img {
+  width: 200px;
   display: block;
   position: absolute;
-  bottom: 20px;
+  bottom: 30px;
   right: 0px;
+}
+
+.logo_img {
+  width: 500px;
+  display: block;
+  margin: auto;
 }
 
 .footer {
@@ -51,4 +61,16 @@ nav.navbar.navbar-default {
 .white {
   color: white;
   margin-right: 7px;
+}
+
+
+.btn-orange {
+  background-color: #e06d35;
+  color: white;
+}
+
+
+.btn-orange:hover {
+  background-color: #df936e;
+  color: white;
 }

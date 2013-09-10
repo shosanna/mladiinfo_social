@@ -6,7 +6,7 @@ h1.title {
   font-family: Marion;
   font-size: 48px;
   margin: 3px;
-  color: gray;
+  font-weight: bold;
 }
 
 h3.orange {
@@ -29,11 +29,16 @@ h3.orange {
 
 .bubble {
   position: fixed;
-  top: 250px;
-  right: 0px;
+  top: 50px;
+  right: -40px;
   display: inline;
 }
 
 .row.last {
   margin-bottom: 50px;
+}
+
+input {
+  background-color: #b8ddee;
+
 }

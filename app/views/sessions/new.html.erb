@@ -1,0 +1,11 @@
+<h3 class="center"> Přihlaš se </h3>
+    <%= form_for(:session, url: sessions_path) do |f| %>
+      <%= render 'shared/error_messages' %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.submit "Potvrdit", class: "btn btn-large btn-orange", id: "sign in" %>
+    <% end %>
