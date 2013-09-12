@@ -29,15 +29,15 @@ describe "Authentication Pages" do
     end
 
     it 'displays profile link' do
-      page.should have_link('Profile', href: user_path(user))
+      page.should have_link('Můj profil', href: user_path(user))
     end
 
     it 'displays sign out link' do
-      page.should have_link('Sign out', href: signout_path)
+      page.should have_link('Odhlásit se', href: signout_path)
     end
 
     it 'does not display log in link' do
-      page.should_not have_link('Sign in', href: signin_path)
+      page.should_not have_link('Registrace', href: signin_path)
     end
   end
 end
