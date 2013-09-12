@@ -13,6 +13,15 @@ describe User do
     FactoryGirl.build(:user, username: "itisjusttoolongusername")
   end
 
+  it 'has a remember_token attribute' do
+    subject.should respond_to(:remember_token)
+  end
+
+  it 'has a default remember token when created' do
+    user = FactoryGirl.create(:user)
+    user.remember_token.should_not be_blank
+  end
+
   describe "password" do
     it 'is invalid when nil' do
       FactoryGirl.build(:user, password: nil, password_confirmation: nil).should_not be_valid

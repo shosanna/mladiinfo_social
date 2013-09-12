@@ -1,6 +1,7 @@
 <h3 class="center"> Přihlaš se </h3>
+  <div class="col-md-6 col-md-offset-3">
     <%= form_for(:session, url: sessions_path) do |f| %>
-      <%= render 'shared/error_messages' %>
+
       <%= f.label :email %>
       <%= f.text_field :email %>
 
@@ -9,3 +10,6 @@
 
       <%= f.submit "Potvrdit", class: "btn btn-large btn-orange", id: "sign in" %>
     <% end %>
+    <br />
+    <div> Ještě nemáš účet?     <%= link_to "Přidej se hned teď!", signup_path, class: "btn btn-large btn-primary", id: "signup" %> </div>
+  </div>

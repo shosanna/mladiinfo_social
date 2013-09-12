@@ -13,6 +13,8 @@
  *= require_tree .
  */
 
+/* main */
+
 body {
   font-family: Helvetica;
   font-size: 16px;
@@ -27,13 +29,7 @@ nav.navbar.navbar-default {
   border-radius: 0;
 }
 
-.logo_img {
-  width: 200px;
-  display: block;
-  position: absolute;
-  bottom: 30px;
-  right: 0px;
-}
+/* footer */
 
 .footer {
   background-color: #5ea3d7;
@@ -54,6 +50,15 @@ nav.navbar.navbar-default {
   }
 }
 
+/* other */
+
+.logo_img {
+  width: 200px;
+  display: block;
+  position: absolute;
+  bottom: 30px;
+  right: 0px;
+}
 
 
 .white {
@@ -62,13 +67,3 @@ nav.navbar.navbar-default {
 }
 
 
-.btn-orange {
-  background-color: #e06d35;
-  color: white;
-}
-
-
-.btn-orange:hover {
-  background-color: #df936e;
-  color: white;
-}

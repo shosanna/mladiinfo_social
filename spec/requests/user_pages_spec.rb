@@ -8,14 +8,18 @@ describe "User pages" do
     let(:user) { FactoryGirl.create(:user) }
     before { visit user_path(user) }
 
-    it { should have_content(user.username) }
+    it 'has the right content' do
+      should have_content(user.username)
+    end
   end
 
   describe "signup page" do
     before { visit signup_path }
     let(:submit) { "submit" }
 
-    it { should have_content('Zaregistruj') }
+    it 'has the right content' do
+      should have_content('Zaregistruj')
+    end
 
     it "does not create a user with blank form" do
       expect { click_button submit }.not_to change(User, :count)

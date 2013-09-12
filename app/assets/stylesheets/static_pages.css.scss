@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* typography */
+
 h1.title {
   font-family: Marion;
   font-size: 48px;
@@ -14,10 +16,17 @@ h3.orange {
   margin-top: 3px;
 }
 
+/* position */
+
 .center {
   text-align: center;
 }
 
+.row.last {
+  margin-bottom: 50px;
+}
+
+/* carousal */
 
 .carousel {
   width: 400px;
@@ -27,6 +36,8 @@ h3.orange {
   }
 }
 
+/* other */
+
 .bubble {
   position: fixed;
   top: 50px;
@@ -34,9 +45,6 @@ h3.orange {
   display: inline;
 }
 
-.row.last {
-  margin-bottom: 50px;
-}
 
 input {
   background-color: #b8ddee;
