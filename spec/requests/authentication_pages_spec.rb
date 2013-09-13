@@ -37,8 +37,15 @@ describe "Authentication Pages" do
     end
 
     it 'does not display log in link' do
-      page.should_not have_link('Registrace', href: signin_path)
+      page.should_not have_link('Přihlásit se', href: signin_path)
+    end
+
+    it 'can be signed out' do
+      click_link "Odhlásit se"
+      page.should have_link('Přihlásit se', href: signin_path)
     end
   end
+
+
 end
 
