@@ -37,6 +37,7 @@ group :development, :test do
   gem 'factory_girl_rails', '3.2.0'
   gem 'guard-rspec', '~> 0.7.0'
   gem 'pry'
+  gem 'cucumber-rails', require: false
 end
 
 group :test do

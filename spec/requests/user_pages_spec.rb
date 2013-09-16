@@ -4,7 +4,7 @@ describe "User pages" do
 
   subject { page }
 
-  describe "profile page" do
+  describe "profile" do
     let(:user) { FactoryGirl.create(:user) }
     before { visit user_path(user) }
 
@@ -13,7 +13,7 @@ describe "User pages" do
     end
   end
 
-  describe "signup page" do
+  describe "signup" do
     before { visit signup_path }
     let(:submit) { "submit" }
 
@@ -46,5 +46,24 @@ describe "User pages" do
       click_button submit
       page.should have_content('error')
     end
+  end
+
+  describe "edit" do
+    let(:user) {FactoryGirl.create(:user) }
+    before { visit edit_user_path(user) }
+
+    it "has the right content" do
+      should have_content('Upravit profil')
+    end
+
+    it "has a link  to change a gravatar" do
+      should have_link('změnit gravatar', href: 'http://gravatar.com/emails')
+    end
+
+    it "displays an error when submittin with invalid information" do
+      click_button "Potvrdit"
+      should have_content('error')
+    end
+
   end
 end
