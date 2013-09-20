@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'spec_helper'
 
 describe "User pages" do
@@ -57,13 +58,22 @@ describe "User pages" do
     end
 
     it "has a link  to change a gravatar" do
-      should have_link('změnit gravatar', href: 'http://gravatar.com/emails')
+      should have_link('Změnit gravatar', href: 'http://gravatar.com/emails')
     end
 
-    it "displays an error when submittin with invalid information" do
+    it "displays an error when submiting with invalid information" do
+      fill_in "Username", with: " "
       click_button "Potvrdit"
       should have_content('error')
     end
 
+    it 'updates user username' do
+      fill_in "Username",     with: "New Name"
+      fill_in "Email",        with: user.email
+      fill_in "Password",     with: user.password
+      fill_in "Confirmation", with: user.password
+      click_button "Potvrdit"
+      page.should have_content("New Name")
+    end
   end
 end
