@@ -1,5 +1,7 @@
 # coding: utf-8
 class UsersController < ApplicationController
+  before_action :signed_in_user, only: [:edit, :update]
+
   def new
     @user = User.new
   end
@@ -36,5 +38,10 @@ class UsersController < ApplicationController
   private
     def user_params
       params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    end
+
+    def signed_in_user
+      redirect_to signin_url unless signed_in?
+      flash[:notice] = "Prosím přihlaš se" unless signed_in?
     end
 end

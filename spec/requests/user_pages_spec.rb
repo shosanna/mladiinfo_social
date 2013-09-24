@@ -1,5 +1,6 @@
 # coding: utf-8
 require 'spec_helper'
+require 'utilities'
 
 describe "User pages" do
 
@@ -51,7 +52,10 @@ describe "User pages" do
 
   describe "edit" do
     let(:user) {FactoryGirl.create(:user) }
-    before { visit edit_user_path(user) }
+    before do
+      sign_in user
+      visit edit_user_path(user)
+    end
 
     it "has the right content" do
       should have_content('Upravit profil')
@@ -63,7 +67,7 @@ describe "User pages" do
 
     it "displays an error when submiting with invalid information" do
       fill_in "Username", with: " "
-      click_button "Potvrdit"
+      click_button "edit"
       should have_content('error')
     end
 
@@ -72,8 +76,8 @@ describe "User pages" do
       fill_in "Email",        with: user.email
       fill_in "Password",     with: user.password
       fill_in "Confirmation", with: user.password
-      click_button "Potvrdit"
-      page.should have_content("New Name")
+      click_button "edit"
+      should have_content("New Name")
     end
   end
 end

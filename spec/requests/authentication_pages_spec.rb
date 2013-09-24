@@ -1,5 +1,6 @@
 # coding: utf-8
 require 'spec_helper'
+require 'utilities'
 
 describe "Authentication Pages" do
   before { visit signin_path }
@@ -22,11 +23,7 @@ describe "Authentication Pages" do
   end
 
   describe 'signing in with valid information' do
-    before do
-      fill_in "Email",    with: user.email.upcase
-      fill_in "Password", with: user.password
-      click_button "sign in"
-    end
+    before { sign_in user }
 
     it 'displays profile link' do
       page.should have_link('Můj profil', href: user_path(user))
@@ -47,6 +44,19 @@ describe "Authentication Pages" do
     it 'can be signed out' do
       click_link "Odhlásit se"
       page.should have_link('Přihlásit se', href: signin_path)
+    end
+  end
+
+  describe 'for non-signed in users' do
+    let(:user) { FactoryGirl.create(:user) }
+    it ' displays login page when trying to edit someone profile' do
+      visit edit_user_path(user)
+      page.should have_content('Přihlaš se')
+    end
+
+    it 'redirects to signin page when submitting update action' do
+      patch user_path(user)
+      expect(response).to redirect_to(signin_path)
     end
   end
 
