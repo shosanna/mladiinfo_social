@@ -13,12 +13,16 @@
     <p>Mladiinfo social je náš projekt jakým se snažíme spojit dohromady lidi, kteří mají podobný způsob života. Chceme vytvořit komunitu, kde bude možné sdílet své zkušenosti z dobrovolnictví, trainingů, výměn mládeže, ... a kde bude možné se inspirovat, přiučit a dozvědět nové věci od těch, co to zažili.</p>
   </div>
   <div class="col-md-6">
-    <h3 class="center"> Přihlaš se </h3>
-    Username<input> </input>
-    Email<input></input>
-    <br />
-    <button class="btn btn-orange"> Potvrdit </button>
-    <span> Ještě nemáš účet?     <%= link_to "Přidej se hned teď!", signup_path, class: "btn btn-large btn-primary" %> </span>
+
+    <%= form_tag "/sessions" do %>
+      <h3 class="center"> Přihlaš se </h3>
+      Email <input type="text" name="session[email]">
+      Password <input type="password" name="session[password]">
+      <br>
+      <button type="submit" class="btn btn-orange">Potvrdit</button>
+    <% end %>
+
+    <span> Ještě nemáš účet? <%= link_to "Přidej se hned teď!", signup_path, class: "btn btn-large btn-primary" %></span>
   </div>
 </div>
 <br />
