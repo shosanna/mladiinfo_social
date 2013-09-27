@@ -105,13 +105,13 @@ describe "User pages" do
 
     describe "pagination" do
 
-      before(:all) do
+      before do
        sign_in FactoryGirl.create(:user)
        30.times { FactoryGirl.create(:user) }
        visit users_path
       end
 
-      after(:all)  { User.delete_all }
+      after { User.delete_all }
 
       it 'has the right div' do
         page.should have_selector('div.pagination')
@@ -119,7 +119,7 @@ describe "User pages" do
 
       it "should list each user" do
         User.paginate(page: 1).each do |user|
-          expect{page}.to have_selector('li', text: user.username)
+          page.should have_selector('a', text: user.username)
         end
       end
     end
