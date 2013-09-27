@@ -41,6 +41,10 @@ describe "Authentication Pages" do
       page.should have_link('Nastavení', href: edit_user_path(user))
     end
 
+    it 'displays users link' do
+      page.should have_link('Uživatelé', href: users_path)
+    end
+
     it 'can be signed out' do
       click_link "Odhlásit se"
       page.should have_link('Přihlásit se', href: signin_path)

@@ -80,4 +80,27 @@ describe "User pages" do
       should have_content("New Name")
     end
   end
+
+  describe 'index' do
+    before { visit users_path }
+
+    it 'has the right content when not logged in' do
+      page.should have_content('Přihlaš se')
+    end
+
+    it 'has the right content when logged in' do
+      sign_in FactoryGirl.create(:user)
+      FactoryGirl.create(:user, username: "Bob", email: "bob@example.com")
+      FactoryGirl.create(:user, username: "Ben", email: "ben@example.com")
+      visit users_path
+
+      page.should have_content('Všichni uživatelé')
+    end
+
+    it "should list each user" do
+      User.all.each do |user|
+        expect(page).to have_selector('li', text: user.username)
+      end
+    end
+  end
 end

@@ -31,6 +31,10 @@ gem 'jbuilder', '~> 1.2'
 # secure password related gems
 gem 'bcrypt-ruby', '3.0.1'
 
+gem 'faker', '1.1.2'
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
+
 # Test related gems
 group :development, :test do
   gem 'rspec-rails', '~> 2.10.1'
@@ -41,7 +45,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'faker', '~> 1.0.1'
   gem 'capybara', '~> 1.1.2'
   gem 'database_cleaner', '~> 1.0.1'
   gem 'launchy', '~> 2.1.0'
