@@ -81,4 +81,20 @@ describe User do
       end
     end
   end
+
+  describe "admin status" do
+    it "is responded" do
+      subject.should respond_to(:admin)
+    end
+
+    it "is not given by default" do
+      subject.should_not be_admin
+    end
+
+    it "is working when set" do
+      @user.save!
+      @user.toggle!(:admin)
+      subject.should be_admin
+    end
+  end
 end
