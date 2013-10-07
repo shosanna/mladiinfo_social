@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    Rails.logger.error(("\n" * 10) + params.inspect + ("\n" * 10))
     user = User.find_by(email: params[:session][:email].downcase)
 
     if user && user.authenticate(params[:session][:password])

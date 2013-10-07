@@ -1,18 +1,17 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>Mladiinfo Social</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <!-- navbar -->
-  <nav class="navbar navbar-default" role="navigation">
-    <div class="container">
-   <!-- Brand and toggle get grouped for better mobile display -->
+<!-- navbar -->
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -22,44 +21,49 @@
       </button>
       <a class="navbar-brand" href="/">Mladiinfo Social</a>
     </div>
+
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav">
         <% if signed_in? %>
-          <li><%= link_to "Uživatelé", users_path %></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%=current_user.username %><b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Můj profil", current_user %></li>
-              <li><%= link_to "Nastavení",  edit_user_path(current_user) %></li>
-              <li class="divider"></li>
-              <li><%= link_to "Odhlásit se", signout_path, method: "delete" %></li>
+            <li><%= link_to "Uživatelé", users_path %></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= current_user.username %>
+                <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Můj profil", current_user %></li>
+                <li><%= link_to "Nastavení", edit_user_path(current_user) %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Odhlásit se", signout_path, method: "delete" %></li>
         <% else %>
-          <li><a href="/signup">Registrace</a></li>
-          <li><%= link_to "Přihlásit se", signin_path %></li>
+            <li><a href="/signup">Registrace</a></li>
+            <li><%= link_to "Přihlásit se", signin_path %></li>
         <% end %>
         </ul>
-      </li>
+        </li>
 
-    </ul>
-  </nav>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-  <!-- flash message -->
-  <% flash.each do |key, value| %>
+<!-- flash message -->
+<% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
-  <% end %>
+<% end %>
 
-  <!-- content of each pages will render here -->
-  <div class="container">
-    <%= yield %>
-  </div>
+<!-- content of each pages will render here -->
+<div class="container">
+  <%= yield %>
+</div>
 
-  <!-- footer -->
-  <div class="footer">
-    <%= image_tag 'mladiinfo.png', :class => 'logo_img' %>
-    <a href="https://www.facebook.com/mladiinfoCR"><%= image_tag "fb.png", :class => "fb-icon"%></a>
-    <p>Dobrovolnictví | Stáže | Neformální vzdělávání | Studium | Cestování </p>
-  </div>
+<!-- footer -->
+<div class="footer">
+  <%= image_tag 'mladiinfo.png', :class => 'logo_img' %>
+  <a href="https://www.facebook.com/mladiinfoCR"><%= image_tag "fb.png", :class => "fb-icon" %></a>
+
+  <p>Dobrovolnictví | Stáže | Neformální vzdělávání | Studium | Cestování </p>
+</div>
 
 </body>
 </html>

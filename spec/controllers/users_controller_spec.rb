@@ -8,6 +8,7 @@ describe UsersController do
       get :show, id: user
       assigns(:user).should == user
     end
+
     it "renders the :show view" do
       user = FactoryGirl.create(:user)
       get :show, id: user
@@ -32,12 +33,13 @@ describe UsersController do
       it "saves the new user into the database" do
         expect { post :create, user: FactoryGirl.attributes_for(:user)}.to change(User, :count).by(1)
       end
-
     end
+
     context "with invalid attributes" do
       it "does not save the user into the database" do
         expect { post :create, user: FactoryGirl.attributes_for(:invalid_user)}.to_not change(User, :count)
       end
+
       it "re-render the :new view" do
         post :create, user: FactoryGirl.attributes_for(:invalid_user)
         response.should render_template :new

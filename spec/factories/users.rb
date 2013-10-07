@@ -7,6 +7,10 @@ FactoryGirl.define do
 
     password "mystring"
     password_confirmation { |user| user.password }
+
+    factory :admin do
+      admin true
+    end
   end
 
   factory :invalid_user, class: "User" do

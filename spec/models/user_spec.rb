@@ -69,6 +69,7 @@ describe User do
     it 'is invalid in a wrong format' do
       addresses = %w[user@foo,com user_at_foo.org example.user@foo.
                      foo@bar_baz.com foo@bar+baz.com]
+
       addresses.each do |invalid_address|
         FactoryGirl.build(:user, email: invalid_address).should_not be_valid
       end
@@ -83,18 +84,19 @@ describe User do
   end
 
   describe "admin status" do
+    let(:user) { FactoryGirl.create(:user) }
+
     it "is responded" do
-      subject.should respond_to(:admin)
+      user.should respond_to(:admin)
     end
 
     it "is not given by default" do
-      subject.should_not be_admin
+      user.should_not be_admin
     end
 
     it "is working when set" do
-      @user.save!
-      @user.toggle!(:admin)
-      subject.should be_admin
+      user.toggle!(:admin)
+      user.should be_admin
     end
   end
 end

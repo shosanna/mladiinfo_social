@@ -2,6 +2,8 @@ MladiinfoSocial::Application.routes.draw do
   get "static_pages/index"
   root "static_pages#index"
   resources :users
+  resources :topics
+  resources :posts
   resources :sessions, only: [:new, :create, :destroy]
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'

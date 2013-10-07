@@ -1,0 +1,46 @@
+<div class="discussion">
+  <div class="row">
+    <div class="col-md-10"><h2>Diskuzní fórum</h2></div>
+    <div class="col-md-2">
+     <%= link_to "Založit nové téma", new_topic_path, class: "btn btn-primary new_topic"  %>
+    </div>
+  </div>
+  <hr>
+  <table class="table-condensed">
+    <tr class="header">
+      <td>
+        <span>Téma</span>
+      </td>
+      <td>
+        <span>Kategorie</span>
+      </td>
+      <td>
+        <span>Příspěvků</span>
+      </td>
+      <td>
+        <span>Autor</span>
+      </td>
+      <td>
+        <span>Počet hlasů</span>
+      </td>
+    </tr>
+    <% @topics.each do |topic| %>
+      <tr>
+        <td><%= topic.title %></td>
+        <td>
+          <span class="category">Dobrovolnictví</span>
+        </td>
+        <td>
+          <span>10</span>
+        </td>
+        <td>
+          <%= gravatar_for topic.user, 20 %>
+          <span>Jocellyn</span>
+        </td>
+        <td>
+          <span>32</span>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

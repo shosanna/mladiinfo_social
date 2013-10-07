@@ -123,5 +123,28 @@ describe "User pages" do
         end
       end
     end
+
+    describe "delete links" do
+      it "are not visible for ordinary users" do
+        page.should_not have_link('delete')
+      end
+
+      context "for admin users" do
+        let(:admin) { FactoryGirl.create(:admin) }
+        before(:each) do
+          sign_in admin
+          visit users_path
+        end
+
+        it "are visible" do
+          page.should have_link('delete', href: user_path(User.first))
+        end
+
+        it "are working" do
+          expect { click_link('delete') }.to change(User, :count).by(-1)
+        end
+
+      end
+    end
   end
 end
