@@ -86,6 +86,8 @@
     <orderEntry type="library" scope="PROVIDED" name="sass-rails (v4.0.0, rbenv: 2.0.0-p247) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sdoc (v0.3.20, rbenv: 2.0.0-p247) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="selenium-webdriver (v2.35.1, rbenv: 2.0.0-p247) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="simplecov (v0.7.1, rbenv: 2.0.0-p247) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="simplecov-html (v0.7.1, rbenv: 2.0.0-p247) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="slop (v3.4.6, rbenv: 2.0.0-p247) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v2.10.0, rbenv: 2.0.0-p247) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v2.0.0, rbenv: 2.0.0-p247) [gem]" level="application" />

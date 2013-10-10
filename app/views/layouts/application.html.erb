@@ -41,7 +41,9 @@
         <% end %>
         </ul>
         </li>
-
+        <% if signed_in? %>
+           <li><%= link_to "Diskuze", topics_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>
